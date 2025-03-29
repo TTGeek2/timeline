@@ -1,0 +1,32 @@
+2024-03-15 09:15:23,123 [ERROR] Failed to connect to database: Connection timeout after 30 seconds
+2024-03-15 09:15:45,456 [ERROR] Failed to connect to database: Connection timeout after 30 seconds
+2024-03-15 09:16:12,789 [ERROR] Failed to connect to database: Connection timeout after 30 seconds
+2024-03-15 10:30:15,234 [ERROR] Invalid user credentials for user: john.doe@example.com
+2024-03-15 10:30:16,345 [ERROR] Invalid user credentials for user: jane.smith@example.com
+2024-03-15 11:45:23,456 [ERROR] File not found: /uploads/document_123.pdf
+2024-03-15 11:45:24,567 [ERROR] File not found: /uploads/document_123.pdf
+2024-03-15 12:00:01,234 [ERROR] Failed to send email: SMTP server unavailable
+2024-03-15 12:00:02,345 [ERROR] Failed to send email: SMTP server unavailable
+2024-03-15 12:00:03,456 [ERROR] Failed to send email: SMTP server unavailable
+2024-03-15 13:15:45,678 [ERROR] API request failed: 404 Not Found - /api/users/999
+2024-03-15 13:15:46,789 [ERROR] API request failed: 404 Not Found - /api/users/999
+2024-03-15 14:30:12,345 [ERROR] Memory limit exceeded: Process using 2.5GB of 2GB limit
+2024-03-15 14:30:13,456 [ERROR] Memory limit exceeded: Process using 2.5GB of 2GB limit
+2024-03-15 15:45:34,567 [ERROR] Database deadlock detected: Transaction ID 12345
+2024-03-15 15:45:35,678 [ERROR] Database deadlock detected: Transaction ID 12345
+2024-03-15 16:00:23,456 [ERROR] Failed to process payment: Invalid card number
+2024-03-15 16:00:24,567 [ERROR] Failed to process payment: Invalid card number
+2024-03-15 16:00:25,678 [ERROR] Failed to process payment: Invalid card number
+2024-03-15 17:15:45,789 [ERROR] Cache synchronization failed: Redis connection lost
+2024-03-15 17:15:46,890 [ERROR] Cache synchronization failed: Redis connection lost
+2024-03-15 18:30:12,456 [ERROR] Failed to generate PDF: Template not found
+2024-03-15 18:30:13,567 [ERROR] Failed to generate PDF: Template not found
+2024-03-15 19:45:23,678 [ERROR] Failed to connect to database: Connection timeout after 30 seconds
+2024-03-15 19:45:24,789 [ERROR] Failed to connect to database: Connection timeout after 30 seconds
+2024-03-15 20:00:34,890 [ERROR] Invalid user credentials for user: admin@example.com
+2024-03-15 20:00:35,901 [ERROR] Invalid user credentials for user: admin@example.com
+2024-03-15 21:15:45,012 [ERROR] File not found: /uploads/report_456.pdf
+2024-03-15 21:15:46,123 [ERROR] File not found: /uploads/report_456.pdf
+2024-03-15 22:30:56,234 [ERROR] Failed to send email: SMTP server unavailable
+2024-03-15 22:30:57,345 [ERROR] Failed to send email: SMTP server unavailable
+2024-03-15 23:45:67,456 [ERROR] API request failed: 500 Internal Server Error - /api/orders 
