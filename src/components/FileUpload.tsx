@@ -9,61 +9,134 @@ import {
   IconButton,
   Paper
 } from '@mui/material';
-import { Delete as DeleteIcon, Upload as UploadIcon } from '@mui/icons-material';
-import { parse } from 'date-fns';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-interface FileUploadProps {
-  onFileUpload: (data: any[]) => void;
+interface LogData {
+  timestamp: Date;
+  message: string;
+  file: string;
+  level: 'ERR' | 'WARN';
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }) => {
+interface FileUploadProps {
+  onFileUpload: (data: LogData[]) => void;
+}
+
+const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }: FileUploadProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = React.useState<File[]>([]);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const newFiles = Array.from(event.target.files);
-      setFiles(prev => [...prev, ...newFiles]);
+      setFiles((prev: File[]) => [...prev, ...newFiles]);
     }
   };
 
   const handleRemoveFile = (index: number) => {
-    setFiles(prev => prev.filter((_, i) => i !== index));
+    setFiles((prev: File[]) => prev.filter((_: File, i: number) => i !== index));
+  };
+
+  const parseLogLine = (line: string): { timestamp: Date; level: string; message: string } | null => {
+    // Match format: "2025-04-17 08:21:24.838 +02:00 [ERR] Message"
+    const match = line.match(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}) ([+-]\d{2}:\d{2}) \[(.*?)\] (.*)$/);
+    
+    if (match) {
+      const [, timestamp, timezone, level, message] = match;
+      // Create a date object with timezone offset
+      const date = new Date(timestamp);
+      const [hours, minutes] = timezone.split(':').map(Number);
+      const offsetMinutes = (hours * 60 + minutes) * (timezone.startsWith('+') ? 1 : -1);
+      date.setMinutes(date.getMinutes() - date.getTimezoneOffset() - offsetMinutes);
+      
+      return {
+        timestamp: date,
+        level,
+        message
+      };
+    }
+    return null;
+  };
+
+  const isStackTraceLine = (line: string): boolean => {
+    // Common patterns in stack traces
+    return line.trim().startsWith('at ') || // .NET stack trace lines
+           line.includes('   at ') ||       // Indented stack trace lines
+           line.includes('--- End of ') ||  // End of stack trace markers
+           line.includes(' ---> ') ||       // Inner exception markers
+           (line.match(/^[\s]*---/) !== null); // Stack trace boundaries
+  };
+
+  const normalizeLogLevel = (level: string): 'ERR' | 'WARN' | null => {
+    switch (level) {
+      case 'ERR': return 'ERR';
+      case 'WRN': return 'WARN';
+      default: return null;
+    }
   };
 
   const handleUpload = async () => {
-    const logData: any[] = [];
+    const logData: LogData[] = [];
     
     for (const file of files) {
       try {
         const text = await file.text();
         const lines = text.split('\n');
         
-        lines.forEach(line => {
-          if (line.includes('ERROR')) {
-            // Extract timestamp using regex
-            const timestampMatch = line.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})/);
-            if (timestampMatch) {
-              const timestampStr = timestampMatch[1];
-              // Parse the timestamp string to Date object
-              const timestamp = parse(timestampStr, 'yyyy-MM-dd HH:mm:ss,SSS', new Date());
-              const errorMessage = line.split('ERROR')[1]?.trim();
+        let currentEntry: LogData | null = null;
+        let isCollectingStackTrace = false;
+        
+        lines.forEach((line: string, index: number) => {
+          const trimmedLine = line.trim();
+          if (!trimmedLine) return; // Skip empty lines
+          
+          const parsedLine = parseLogLine(trimmedLine);
+          
+          if (parsedLine) {
+            const normalizedLevel = normalizeLogLevel(parsedLine.level);
+            if (normalizedLevel) {
+              // Start of a new entry
+              if (currentEntry) {
+                logData.push(currentEntry);
+              }
               
-              if (errorMessage) {
-                logData.push({
-                  timestamp,
-                  error: errorMessage,
-                  file: file.name
-                });
+              currentEntry = {
+                timestamp: parsedLine.timestamp,
+                message: parsedLine.message,
+                file: file.name,
+                level: normalizedLevel
+              };
+              isCollectingStackTrace = true;
+            } else {
+              isCollectingStackTrace = false;
+            }
+          } else if (currentEntry && isCollectingStackTrace) {
+            // Check if this line is part of the stack trace
+            if (isStackTraceLine(trimmedLine)) {
+              currentEntry.message += '\n' + trimmedLine;
+            } else {
+              // If we hit a line that's not a stack trace and not a timestamp,
+              // keep collecting if the next line looks like a stack trace
+              const nextLine = lines[index + 1]?.trim();
+              if (nextLine && isStackTraceLine(nextLine)) {
+                currentEntry.message += '\n' + trimmedLine;
+              } else {
+                isCollectingStackTrace = false;
               }
             }
           }
         });
+        
+        // Add the last entry if exists
+        if (currentEntry) {
+          logData.push(currentEntry);
+        }
       } catch (error) {
         console.error(`Error processing file ${file.name}:`, error);
       }
     }
 
+    console.log('Parsed log data:', logData);
     onFileUpload(logData);
   };
 
@@ -73,28 +146,39 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }) => {
         Upload Log Files
       </Typography>
       
-      <input
-        type="file"
-        multiple
-        accept=".log"
-        style={{ display: 'none' }}
-        ref={fileInputRef}
-        onChange={handleFileSelect}
-      />
-      
-      <Button
-        variant="contained"
-        startIcon={<UploadIcon />}
-        onClick={() => fileInputRef.current?.click()}
-        sx={{ mb: 2 }}
-      >
-        Select Files
-      </Button>
+      <Box sx={{ mb: 2 }}>
+        <input
+          type="file"
+          multiple
+          onChange={handleFileSelect}
+          style={{ display: 'none' }}
+          ref={fileInputRef}
+          accept=".txt,.log"
+        />
+        <Button
+          variant="contained"
+          onClick={() => fileInputRef.current?.click()}
+          sx={{ mr: 2 }}
+        >
+          Select Files
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleUpload}
+          disabled={files.length === 0}
+        >
+          Upload and Process
+        </Button>
+      </Box>
 
       {files.length > 0 && (
-        <Paper variant="outlined" sx={{ mb: 2 }}>
-          <List>
-            {files.map((file, index) => (
+        <Paper variant="outlined" sx={{ p: 2 }}>
+          <Typography variant="subtitle1" gutterBottom>
+            Selected Files:
+          </Typography>
+          <List dense>
+            {files.map((file: File, index: number) => (
               <ListItem
                 key={index}
                 secondaryAction={
@@ -103,22 +187,14 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }) => {
                   </IconButton>
                 }
               >
-                <ListItemText primary={file.name} />
+                <ListItemText
+                  primary={file.name}
+                  secondary={`${(file.size / 1024).toFixed(2)} KB`}
+                />
               </ListItem>
             ))}
           </List>
         </Paper>
-      )}
-
-      {files.length > 0 && (
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleUpload}
-          fullWidth
-        >
-          Analyze Logs
-        </Button>
       )}
     </Box>
   );

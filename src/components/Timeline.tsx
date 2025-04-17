@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Box,
   Typography,
-  Paper,
   useTheme
 } from '@mui/material';
 import {
@@ -17,12 +16,13 @@ import {
   Legend,
   TooltipProps
 } from 'recharts';
-import { format, startOfDay, endOfDay, subDays, addMinutes, isWithinInterval } from 'date-fns';
+import { format, startOfHour, endOfHour, addMinutes, isWithinInterval, min, max, subMinutes } from 'date-fns';
 
 interface LogData {
   timestamp: Date;
-  error: string;
+  message: string;
   file: string;
+  level: 'ERR' | 'WARN';
 }
 
 interface TimelineProps {
@@ -33,7 +33,7 @@ interface TimelineProps {
 interface ChartDataPoint {
   timestamp: Date;
   count: number;
-  errors?: LogData[];
+  entries?: LogData[];
 }
 
 interface ScatterDataPoint extends ChartDataPoint {
@@ -44,20 +44,35 @@ interface ScatterDataPoint extends ChartDataPoint {
 const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
   const theme = useTheme();
 
+  // Calculate the date range once
+  const { startDate, endDate } = useMemo(() => {
+    if (!logData.length) return { startDate: new Date(), endDate: new Date() };
+
+    const dates = logData.map(log => log.timestamp);
+    const minDate = min(dates);
+    const maxDate = max(dates);
+
+    // Round to hours and add padding
+    return {
+      startDate: subMinutes(startOfHour(minDate), 30),
+      endDate: addMinutes(endOfHour(maxDate), 30)
+    };
+  }, [logData]);
+
   // Process data for the chart
-  const chartData = React.useMemo(() => {
+  const chartData = useMemo(() => {
     if (!logData.length) return [];
+
+    console.log('Processing timeline data:', logData);
 
     // Filter data if an error is selected
     const filteredData = selectedError
-      ? logData.filter(log => log.error === selectedError)
+      ? logData.filter(log => log.message === selectedError)
       : logData;
 
-    // Get the date range (last 25 days)
-    const endDate = endOfDay(new Date());
-    const startDate = startOfDay(subDays(endDate, 24));
+    console.log('Date range:', { startDate, endDate });
 
-    // Create 30-minute intervals
+    // Create 15-minute intervals for better granularity
     const intervals: ChartDataPoint[] = [];
     let currentInterval = startDate;
 
@@ -65,30 +80,31 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
       intervals.push({
         timestamp: new Date(currentInterval),
         count: 0,
-        errors: []
+        entries: []
       });
-      currentInterval = addMinutes(currentInterval, 30);
+      currentInterval = addMinutes(currentInterval, 15);
     }
 
-    // Count occurrences and collect errors for each interval
+    // Count occurrences and collect entries for each interval
     filteredData.forEach(log => {
       const interval = intervals.find(i => 
         isWithinInterval(log.timestamp, {
           start: i.timestamp,
-          end: addMinutes(i.timestamp, 30)
+          end: addMinutes(i.timestamp, 15)
         })
       );
       if (interval) {
         interval.count++;
-        interval.errors?.push(log);
+        interval.entries?.push(log);
       }
     });
 
+    console.log('Processed intervals:', intervals);
     return intervals;
-  }, [logData, selectedError]);
+  }, [logData, selectedError, startDate, endDate]);
 
   const formatXAxis = (date: Date) => {
-    return format(date, 'MMM d');
+    return format(date, 'MMM d HH:mm');
   };
 
   const formatTooltip = (date: Date) => {
@@ -125,14 +141,14 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
             <Typography variant="body2">
               Count: {data.count}
             </Typography>
-            {data.errors && data.errors.length > 0 && (
+            {data.entries && data.entries.length > 0 && (
               <Box sx={{ mt: 1 }}>
                 <Typography variant="caption" color="text.secondary">
-                  Errors in this interval:
+                  {data.entries[0].level === 'ERR' ? 'Errors' : 'Warnings'} in this interval:
                 </Typography>
-                {data.errors.map((error: LogData, index: number) => (
+                {data.entries.map((entry: LogData, index: number) => (
                   <Typography key={index} variant="caption" display="block">
-                    {format(error.timestamp, 'HH:mm:ss')} - {error.file}
+                    {format(entry.timestamp, 'HH:mm:ss')} - {entry.message.split('\n')[0]}
                   </Typography>
                 ))}
               </Box>
@@ -144,23 +160,34 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
   };
 
   // Create scatter plot data with interval counts
-  const scatterData = React.useMemo(() => {
+  const scatterData = useMemo(() => {
     if (!selectedError) return [];
     
     return chartData.flatMap(interval => 
-      (interval.errors || []).map(error => ({
-        timestamp: error.timestamp,
+      (interval.entries || []).map(entry => ({
+        timestamp: entry.timestamp,
         count: interval.count,
         intervalCount: interval.count,
-        file: error.file
+        file: entry.file
       }))
     );
   }, [chartData, selectedError]);
 
+  // Calculate Y-axis domain
+  const yAxisDomain = useMemo(() => {
+    const maxCount = Math.max(...chartData.map(d => d.count));
+    return [0, Math.max(maxCount, 1)];
+  }, [chartData]);
+
+  const getTitle = () => {
+    if (!logData.length) return 'Timeline';
+    return `${logData[0].level === 'ERR' ? 'Error' : 'Warning'} Timeline`;
+  };
+
   return (
     <Box>
       <Typography variant="h6" gutterBottom>
-        Error Timeline (Last 30 Days)
+        {getTitle()}
       </Typography>
       
       <Box sx={{ height: 400, width: '100%' }}>
@@ -170,34 +197,42 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
             margin={{
               top: 16,
               right: 16,
-              bottom: 0,
+              bottom: 24,
               left: 24,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="timestamp"
+              domain={[startDate.getTime(), endDate.getTime()]}
+              type="number"
+              scale="time"
               tickFormatter={formatXAxis}
               interval="preserveStartEnd"
-              minTickGap={100}
+              minTickGap={50}
+              padding={{ left: 0, right: 0 }}
             />
-            <YAxis />
+            <YAxis
+              domain={yAxisDomain}
+              allowDecimals={false}
+            />
             <Tooltip content={renderTooltip} />
             <Legend />
             <Line
               type="monotone"
               dataKey="count"
-              name="Error Count"
-              stroke={theme.palette.primary.main}
+              name={`${logData[0]?.level === 'ERR' ? 'Error' : 'Warning'} Count`}
+              stroke={theme.palette[logData[0]?.level === 'ERR' ? 'error' : 'warning'].main}
               strokeWidth={2}
               dot={false}
+              connectNulls
             />
             {selectedError && (
               <Scatter
                 data={scatterData}
                 dataKey="count"
-                name="Individual Errors"
-                fill={theme.palette.secondary.main}
+                name="Individual Occurrences"
+                fill={theme.palette[logData[0]?.level === 'ERR' ? 'error' : 'warning'].main}
                 shape="circle"
                 legendType="circle"
               />
