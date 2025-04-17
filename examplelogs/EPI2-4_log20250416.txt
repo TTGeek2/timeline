@@ -1,0 +1,343 @@
+2025-04-16 00:18:36.089 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-16 07:32:04.504 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-16 07:46:44.239 +02:00 [WRN] '.AspNetCore.Correlation.wdWfyeuWwDNN3393Be7WobfpMbYvzDVIVz9DWzYhV2c' cookie not found.
+2025-04-16 07:46:44.249 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+2025-04-16 07:46:44.253 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 07:46:44.281 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 07:47:23.423 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 07:49:17.836 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 09:00:40.521 +02:00 [ERR] XML-filen kunde inte genereras.(Object reference not set to an instance of an object.) Stack:    at Sluweb.Features.EnvironmentDataPage.EnvironmentDataListPage.EnvironmentDataListPageController.XmlForEnvironmentDataPage(List`1 environmentPages, EnvironmentDataListPage environmentDataListPage, CultureInfo culture) in D:\agent4\_work\32\s\Sluweb\Features\EnvironmentDataPage\EnvironmentDataListPage\EnvironmentDataListPageController.cs:line 275
+   at Sluweb.Features.EnvironmentDataPage.EnvironmentDataListPage.EnvironmentDataListPageController.ResultToXml(Int32 contextContentId, String language) in D:\agent4\_work\32\s\Sluweb\Features\EnvironmentDataPage\EnvironmentDataListPage\EnvironmentDataListPageController.cs:line 80
+2025-04-16 09:09:34.452 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-16 09:09:34.460 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-16 09:55:59.027 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-16 09:56:30.543 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+2025-04-16 09:56:30.544 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 09:56:30.549 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 09:56:31.030 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+2025-04-16 09:56:31.031 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 09:56:31.035 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 10:08:22.816 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 10:22:45.083 +02:00 [WRN] '.AspNetCore.Correlation.bI9y4cAg56V7sFc-3E74pz5cjiJVUZRfypHxL3zJaVg' cookie not found.
+2025-04-16 10:22:45.085 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+2025-04-16 10:22:45.088 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 10:22:45.095 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 11:15:52.407 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:21:56.174 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:25:30.204 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+2025-04-16 11:25:30.205 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 11:25:30.213 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 11:35:22.297 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:35:47.514 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:36:59.889 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:38:08.515 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 11:38:23.454 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 12:05:33.505 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 12:58:39.516 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+2025-04-16 12:58:39.518 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 12:58:39.524 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 13:15:20.921 +02:00 [ERR] GlobalSearch find error: Response status code does not indicate success: 400 (Bad Request).
+
+EPiServer.Find.ServiceException: Response status code does not indicate success: 400 (Bad Request).
+
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 400 (Bad Request).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at EPiServer.Find.Connection.JsonRequest.GetResponseStream()
+   --- End of inner exception stack trace ---
+   at EPiServer.Find.Api.Command.<>c__DisplayClass15_0`1.<GetResponse>b__0(Exception exc)
+   at System.AggregateException.Handle(Func`2 predicate)
+   at EPiServer.Find.Api.Command.GetResponse[TResult](IJsonRequest request)
+   at EPiServer.Find.Api.SearchCommand`1.Execute()
+   at EPiServer.Find.Client.Search[TResult](SearchRequestBody requestBody, Action`1 commandAction)
+   at EPiServer.Find.SearchExtensions.GetProjectedResult[TResult](ISearch`1 search, SearchContext context)
+   at EPiServer.Find.SearchExtensions.GetResult(ITypeSearch`1 search, HitSpecification hitSpecification, Boolean filterForPublicSearch)
+   at Sluweb.Infrastructure.Search.SearchService.ExecuteSearch(IQueriedSearch`1 query, HitSpecification hitSpecification, Exception& exception, Boolean filterForPublicSearch) in D:\agent4\_work\32\s\Sluweb\Infrastructure\Search\SearchService.cs:line 260
+2025-04-16 13:15:21.058 +02:00 [ERR] GlobalSearch find error: Response status code does not indicate success: 400 (Bad Request).
+
+EPiServer.Find.ServiceException: Response status code does not indicate success: 400 (Bad Request).
+
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 400 (Bad Request).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at EPiServer.Find.Connection.JsonRequest.GetResponseStream()
+   --- End of inner exception stack trace ---
+   at EPiServer.Find.Api.Command.<>c__DisplayClass15_0`1.<GetResponse>b__0(Exception exc)
+   at System.AggregateException.Handle(Func`2 predicate)
+   at EPiServer.Find.Api.Command.GetResponse[TResult](IJsonRequest request)
+   at EPiServer.Find.Api.SearchCommand`1.Execute()
+   at EPiServer.Find.Client.Search[TResult](SearchRequestBody requestBody, Action`1 commandAction)
+   at EPiServer.Find.SearchExtensions.GetProjectedResult[TResult](ISearch`1 search, SearchContext context)
+   at EPiServer.Find.SearchExtensions.GetResult(ITypeSearch`1 search, HitSpecification hitSpecification, Boolean filterForPublicSearch)
+   at Sluweb.Infrastructure.Search.SearchService.ExecuteSearch(IQueriedSearch`1 query, HitSpecification hitSpecification, Exception& exception, Boolean filterForPublicSearch) in D:\agent4\_work\32\s\Sluweb\Infrastructure\Search\SearchService.cs:line 260
+2025-04-16 13:19:24.999 +02:00 [ERR] Failed registering redirects for content: 11500
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-16 13:20:48.791 +02:00 [ERR] Failed registering redirects for content: 11521
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-16 13:20:56.226 +02:00 [ERR] Failed registering redirects for content: 11660
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-16 13:21:01.403 +02:00 [ERR] Failed registering redirects for content: 11498
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-16 13:28:58.933 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+2025-04-16 13:28:58.934 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 13:28:58.947 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: OpenIdConnectAuthenticationHandler: message.State is null or empty.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-16 13:33:29.960 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 13:46:09.317 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 13:51:27.716 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 14:24:03.782 +02:00 [ERR] Failed registering redirects for content: 11806
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-16 14:43:38.176 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 15:01:51.907 +02:00 [ERR] Cannot find 'contentShortcutLink' in 11821
+2025-04-16 15:03:08.634 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 16:34:31.756 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 17:23:28.808 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 17:37:52.018 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 17:49:25.948 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-16 20:51:51.018 +02:00 [WRN] Failed to determine the https port for redirect.

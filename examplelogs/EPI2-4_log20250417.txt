@@ -1,0 +1,313 @@
+2025-04-17 00:31:28.082 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-17 07:25:03.551 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-17 07:32:07.082 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 07:44:35.093 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 08:21:24.838 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:21:43.621 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:21:43.638 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:21:55.397 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:22:12.538 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:22:35.727 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:22:43.853 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:22:43.867 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Framework.Serialization.Json.Internal.JsonObjectSerializer.Deserialize(TextReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:27:10.876 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:28:09.966 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:28:27.718 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:42.048 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:46.532 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:47.141 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:47.789 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:48.277 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:30:50.099 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:31:12.000 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:31:26.062 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:31:39.614 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:31:40.505 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:26.832 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:30.204 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:32.770 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:36.412 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:39.852 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:32:43.323 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:42:58.212 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:43:01.192 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-17 08:49:27.040 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:08:04.901 +02:00 [ERR] Failed registering redirects for content: 11883
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:09:19.904 +02:00 [ERR] Failed registering redirects for content: 11884
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:09:31.533 +02:00 [ERR] Failed registering redirects for content: 11882
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:11:29.635 +02:00 [ERR] Failed registering redirects for content: 8831
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:32:54.511 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:36:21.077 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:36:34.840 +02:00 [ERR] Failed registering redirects for content: 11882
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:36:56.686 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:39:47.875 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:43:10.378 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 09:51:55.391 +02:00 [ERR] Failed registering redirects for content: 11886
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-17 09:56:22.848 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:01:54.388 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:03:56.525 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:05:24.284 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:07:29.037 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:09:17.167 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-17 10:10:56.940 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.

@@ -1,0 +1,160 @@
+2025-04-14 00:32:38.906 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-14 08:22:51.530 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-14 08:30:22.497 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 08:31:42.134 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 09:49:44.283 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-14 09:49:44.283 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-14 09:49:44.353 +02:00 [WRN] The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+System.InvalidOperationException: The authentication handler registered for scheme 'Preview-token' is 'PreviewTokenHandler' which cannot be used for SignOutAsync. The registered sign-out schemes are: Cookies, OpenIdConnect.
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignOutAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at EPiServer.Cms.Shell.UI.Controllers.Internal.AccountController.SignOutAsync()
+2025-04-14 10:28:05.215 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 10:36:28.726 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 10:36:57.364 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 10:37:28.755 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 10:40:08.375 +02:00 [ERR] An exception was thrown while deserializing the token.
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted.
+ ---> System.Security.Cryptography.CryptographicException: The key {201d751b-fe0f-4068-9abd-2b0824ecf02e} was not found in the key ring. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+2025-04-14 11:32:32.438 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 12:39:28.203 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-14 12:58:04.638 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 13:15:43.964 +02:00 [WRN] '.AspNetCore.Correlation.MJEBtXrTpHnuDSoyLjOqVDhRoXcKAl8G26tx0QugPi0' cookie not found.
+2025-04-14 13:15:43.972 +02:00 [ERR] Auth remote failure 
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+2025-04-14 13:15:43.979 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-14 13:15:44.002 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Geta.NotFoundHandler.Infrastructure.Initialization.NotFoundHandlerMiddleware.InvokeAsync(HttpContext context, RequestHandler requestHandler)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-04-14 13:44:38.950 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 13:50:34.352 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 13:58:53.601 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:09:52.582 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:11:31.720 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:23:20.315 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:26:55.049 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:27:57.063 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:29:07.602 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:35:22.737 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:39:02.642 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:40:46.207 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:53:05.194 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 14:59:52.596 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:01:20.923 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:02:34.136 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:02:40.361 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:03:13.805 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:03:29.303 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:03:41.210 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:03:58.524 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:04:06.491 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:05:18.924 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:16:58.986 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:19:39.468 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 15:25:50.843 +02:00 [ERR] Failed registering redirects for content: 2029
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.RedirectBuilder.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.DefaultAutomaticRedirectsService.CreateRedirects(IReadOnlyCollection`1 histories)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.CreateRedirects(ContentReference contentLink)
+   at Geta.NotFoundHandler.Optimizely.Core.AutomaticRedirects.MovedContentRegistratorBackgroundService.ExecuteAsync(CancellationToken stoppingToken)
+2025-04-14 15:42:58.317 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:43:34.495 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:43:34.509 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:51:33.329 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:51:42.578 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:51:54.337 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 15:52:47.616 +02:00 [ERR] Cannot deserialize to object: 
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize readonly or fixed size dictionary: Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary. Path 'Name', line 1, position 8.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at EPiServer.Shell.Serialization.Json.Internal.CompositeJsonObjectSerializer.Deserialize[T](TextReader reader)
+   at EPiServer.Forms.Helpers.Internal.FormsExtensions.ToObject[T](String value)
+2025-04-14 16:31:43.355 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 16:35:22.667 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 16:42:05.340 +02:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-04-14 17:26:34.248 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-14 22:47:58.233 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-14 23:36:20.273 +02:00 [WRN] Failed to determine the https port for redirect.

@@ -1,0 +1,5 @@
+[ground_rules]
+rule1 = "Always use c#.net for code examples"
+rule2 = "Always use react.js with typescript for frontend code"
+rule3 = "Always format dates as YYYY-MM-DD."
+rule4 = "Allways use BEM naming standard when creating css components"
