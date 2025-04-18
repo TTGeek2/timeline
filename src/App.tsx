@@ -47,12 +47,15 @@ const theme = createTheme({
 function App() {
   const [logData, setLogData] = useState<LogData[]>([]);
   const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
-  const [collapsed, setCollapsed] = useState(false);
+  const [timelineCollapsed, setTimelineCollapsed] = useState(true);
+  const [fileUploadCollapsed, setFileUploadCollapsed] = useState(false);
   const [logType, setLogType] = useState<'ERR' | 'WRN'>('ERR');
 
   const handleFileUpload = (data: LogData[]) => {
     setLogData(data);
     setSelectedMessage(null);
+    setFileUploadCollapsed(true);
+    setTimelineCollapsed(false);
   };
 
   const handleMessageSelect = (message: string | null) => {
@@ -79,63 +82,65 @@ function App() {
             Log4Net Analyzer
           </Typography>
           
-          <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-              <FileUpload onFileUpload={handleFileUpload} />
-              <ToggleButtonGroup
-                value={logType}
-                exclusive
-                onChange={handleLogTypeChange}
-                aria-label="log type"
-                size="small"
-              >
-                <ToggleButton 
-                  value="ERR" 
-                  aria-label="errors"
-                  sx={{ 
-                    '&.Mui-selected': { 
-                      color: 'error.main',
-                      '&:hover': { bgcolor: 'error.lighter' }
-                    }
-                  }}
-                >
-                  <ErrorIcon sx={{ mr: 1 }} />
-                  Errors
-                </ToggleButton>
-                <ToggleButton 
-                  value="WRN" 
-                  aria-label="warnings"
-                  sx={{ 
-                    '&.Mui-selected': { 
-                      color: 'warning.main',
-                      '&:hover': { bgcolor: 'warning.lighter' }
-                    }
-                  }}
-                >
-                  <WarningIcon sx={{ mr: 1 }} />
-                  Warnings
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </Box>
-          </Paper>
+          <FileUpload 
+            onFileUpload={handleFileUpload} 
+            isCollapsed={fileUploadCollapsed}
+            onCollapseChange={setFileUploadCollapsed}
+          />
 
           <Paper 
             elevation={3} 
             sx={{ 
               p: 3, 
-              flex: 2,
+              mb: 3,
               transition: 'height 0.3s ease',
-              height: collapsed ? '60px' : 'auto',
+              height: timelineCollapsed ? '60px' : 'auto',
               overflow: 'hidden'
             }}
           >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: collapsed ? 0 : 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: timelineCollapsed ? 0 : 2 }}>
               <Typography variant="subtitle1" color="text.secondary">
                 {selectedMessage ? 'Showing selected entry' : 'Showing all entries'}
               </Typography>
-              <IconButton onClick={() => setCollapsed(!collapsed)}>
-                {collapsed ? <ExpandMore /> : <ExpandLess />}
-              </IconButton>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <ToggleButtonGroup
+                  value={logType}
+                  exclusive
+                  onChange={handleLogTypeChange}
+                  aria-label="log type"
+                  size="small"
+                >
+                  <ToggleButton 
+                    value="ERR" 
+                    aria-label="errors"
+                    sx={{ 
+                      '&.Mui-selected': { 
+                        color: 'error.main',
+                        '&:hover': { bgcolor: 'error.lighter' }
+                      }
+                    }}
+                  >
+                    <ErrorIcon sx={{ mr: 1 }} />
+                    Errors
+                  </ToggleButton>
+                  <ToggleButton 
+                    value="WRN" 
+                    aria-label="warnings"
+                    sx={{ 
+                      '&.Mui-selected': { 
+                        color: 'warning.main',
+                        '&:hover': { bgcolor: 'warning.lighter' }
+                      }
+                    }}
+                  >
+                    <WarningIcon sx={{ mr: 1 }} />
+                    Warnings
+                  </ToggleButton>
+                </ToggleButtonGroup>
+                <IconButton onClick={() => setTimelineCollapsed(!timelineCollapsed)}>
+                  {timelineCollapsed ? <ExpandMore /> : <ExpandLess />}
+                </IconButton>
+              </Box>
             </Box>
             <Timeline 
               logData={filteredLogData} 
@@ -143,7 +148,7 @@ function App() {
             />
           </Paper>
 
-          <Paper elevation={3} sx={{ p: 3, flex: 1 }}>
+          <Paper elevation={3} sx={{ p: 3 }}>
             <ErrorList 
               logData={filteredLogData} 
               onErrorSelect={handleMessageSelect}

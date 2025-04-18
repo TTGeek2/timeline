@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { 
   Box, 
   Button, 
@@ -7,9 +7,12 @@ import {
   ListItem, 
   ListItemText,
   IconButton,
-  Paper
+  Paper,
+  Collapse
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 interface LogData {
   timestamp: Date;
@@ -20,9 +23,11 @@ interface LogData {
 
 interface FileUploadProps {
   onFileUpload: (data: LogData[]) => void;
+  isCollapsed?: boolean;
+  onCollapseChange?: (collapsed: boolean) => void;
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }: FileUploadProps) => {
+const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isCollapsed = false, onCollapseChange }: FileUploadProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = React.useState<File[]>([]);
 
@@ -141,62 +146,71 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }: FileUploadProps
   };
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Upload Log Files
-      </Typography>
-      
-      <Box sx={{ mb: 2 }}>
-        <input
-          type="file"
-          multiple
-          onChange={handleFileSelect}
-          style={{ display: 'none' }}
-          ref={fileInputRef}
-          accept=".txt,.log"
-        />
-        <Button
-          variant="contained"
-          onClick={() => fileInputRef.current?.click()}
-          sx={{ mr: 2 }}
-        >
-          Select Files
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleUpload}
-          disabled={files.length === 0}
-        >
-          Upload and Process
-        </Button>
+    <Paper elevation={3} sx={{ p: 2, mb: 3 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Typography variant="h6">
+          Upload Log Files
+        </Typography>
+        <IconButton onClick={() => onCollapseChange?.(!isCollapsed)}>
+          {isCollapsed ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+        </IconButton>
       </Box>
+      
+      <Collapse in={!isCollapsed}>
+        <Box sx={{ mt: 2 }}>
+          <Box sx={{ mb: 2 }}>
+            <input
+              type="file"
+              multiple
+              onChange={handleFileSelect}
+              style={{ display: 'none' }}
+              ref={fileInputRef}
+              accept=".txt,.log"
+            />
+            <Button
+              variant="contained"
+              onClick={() => fileInputRef.current?.click()}
+              sx={{ mr: 2 }}
+            >
+              Select Files
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleUpload}
+              disabled={files.length === 0}
+            >
+              Upload and Process
+            </Button>
+          </Box>
 
-      {files.length > 0 && (
-        <Paper variant="outlined" sx={{ p: 2 }}>
-          <Typography variant="subtitle1" gutterBottom>
-            Selected Files:
-          </Typography>
-          <List dense>
-            {files.map((file: File, index: number) => (
-              <ListItem
-                key={index}
-                secondaryAction={
-                  <IconButton edge="end" onClick={() => handleRemoveFile(index)}>
-                    <DeleteIcon />
-                  </IconButton>
-                }
-              >
-                <ListItemText
-                  primary={file.name}
-                  secondary={`${(file.size / 1024).toFixed(2)} KB`}
-                />
-              </ListItem>
-            ))}
-          </List>
-        </Paper>
-      )}
-    </Box>
+          {files.length > 0 && (
+            <Paper variant="outlined" sx={{ p: 2 }}>
+              <Typography variant="subtitle1" gutterBottom>
+                Selected Files:
+              </Typography>
+              <List dense>
+                {files.map((file: File, index: number) => (
+                  <ListItem
+                    key={index}
+                    secondaryAction={
+                      <IconButton edge="end" onClick={() => handleRemoveFile(index)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    }
+                  >
+                    <ListItemText
+                      primary={file.name}
+                      secondary={`${(file.size / 1024).toFixed(2)} KB`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
+          )}
+        </Box>
+      </Collapse>
+    </Paper>
   );
 };
 
