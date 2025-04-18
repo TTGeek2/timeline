@@ -63,6 +63,15 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
 
 ## Technical Requirements
 
+### Dependencies
+1. Use Recharts library for Timeline visualization with the following CDN dependencies:
+   ```html
+   <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+   <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+   <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+   <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+   ```
+
 ### User Interface
 1. Responsive design supporting different screen sizes
 2. Material-UI based components
