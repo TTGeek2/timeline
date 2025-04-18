@@ -44,7 +44,7 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
 
 ### Error/Warning List
 1. [EW-001] Toggle between errors and warnings view (default to errors)
-2. [EW-002] Display top 15 most frequent errors/warnings
+2. [EW-002] Display top 100 most frequent errors/warnings
 3. [EW-003] Show for each entry:
    - First line of the message
    - Occurrence count

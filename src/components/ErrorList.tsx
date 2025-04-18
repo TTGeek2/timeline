@@ -54,7 +54,7 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
     return Array.from(groups.entries())
       .map(([message, data]) => ({ message, ...data }))
       .sort((a, b) => b.count - a.count)
-      .slice(0, 15);
+      .slice(0, 100);
   }, [logData]);
 
   const formatDate = (date: Date) => {
@@ -104,7 +104,7 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Typography variant="h6">
-          Top 15 {logData[0]?.level === 'ERR' ? 'Errors' : 'Warnings'}
+          Top {messageGroups.length} {logData[0]?.level === 'ERR' ? 'Error' : 'Warning'} groups, with a total of {messageGroups.map(a => a.count).reduce((a, b) => a + b, 0)} occurrences
         </Typography>
         {selectedError && (
           <Button 
