@@ -8,11 +8,14 @@ import {
   ListItemText,
   IconButton,
   Paper,
-  Collapse
+  Collapse,
+  Chip
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ErrorIcon from '@mui/icons-material/Error';
+import WarningIcon from '@mui/icons-material/Warning';
 
 interface LogData {
   timestamp: Date;
@@ -27,19 +30,57 @@ interface FileUploadProps {
   onCollapseChange?: (collapsed: boolean) => void;
 }
 
+interface FileStats {
+  errorCount: number;
+  warningCount: number;
+}
+
 const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isCollapsed = false, onCollapseChange }: FileUploadProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = React.useState<File[]>([]);
+  const [fileStats, setFileStats] = React.useState<Map<string, FileStats>>(new Map());
 
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const newFiles = Array.from(event.target.files);
       setFiles((prev: File[]) => [...prev, ...newFiles]);
+      
+      // Process each new file to count errors and warnings
+      const newStats = new Map(fileStats);
+      for (const file of newFiles) {
+        try {
+          const text = await file.text();
+          const lines = text.split('\n');
+          let errorCount = 0;
+          let warningCount = 0;
+
+          lines.forEach((line: string) => {
+            const trimmedLine = line.trim();
+            if (trimmedLine.includes('[ERR]')) {
+              errorCount++;
+            } else if (trimmedLine.includes('[WRN]')) {
+              warningCount++;
+            }
+          });
+
+          newStats.set(file.name, { errorCount, warningCount });
+        } catch (error) {
+          console.error(`Error processing file ${file.name}:`, error);
+          newStats.set(file.name, { errorCount: 0, warningCount: 0 });
+        }
+      }
+      setFileStats(newStats);
     }
   };
 
   const handleRemoveFile = (index: number) => {
+    const fileToRemove = files[index];
     setFiles((prev: File[]) => prev.filter((_: File, i: number) => i !== index));
+    
+    // Remove stats for the removed file
+    const newStats = new Map(fileStats);
+    newStats.delete(fileToRemove.name);
+    setFileStats(newStats);
   };
 
   const parseLogLine = (line: string): { timestamp: Date; level: string; message: string } | null => {
@@ -190,21 +231,45 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isCollapsed = fal
                 Selected Files:
               </Typography>
               <List dense>
-                {files.map((file: File, index: number) => (
-                  <ListItem
-                    key={index}
-                    secondaryAction={
-                      <IconButton edge="end" onClick={() => handleRemoveFile(index)}>
-                        <DeleteIcon />
-                      </IconButton>
-                    }
-                  >
-                    <ListItemText
-                      primary={file.name}
-                      secondary={`${(file.size / 1024).toFixed(2)} KB`}
-                    />
-                  </ListItem>
-                ))}
+                {files.map((file: File, index: number) => {
+                  const stats = fileStats.get(file.name) || { errorCount: 0, warningCount: 0 };
+                  return (
+                    <ListItem
+                      key={index}
+                      secondaryAction={
+                        <IconButton edge="end" onClick={() => handleRemoveFile(index)}>
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                    >
+                      <ListItemText
+                        primary={file.name}
+                        secondary={
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
+                            <Typography variant="caption" color="text.secondary">
+                              Size: {(file.size / 1024).toFixed(2)} KB
+                            </Typography>
+                            <Chip
+                              icon={<ErrorIcon />}
+                              label={`${stats.errorCount} errors`}
+                              size="small"
+                              color="error"
+                              variant="outlined"
+                              sx={{ ml: 1 }}
+                            />
+                            <Chip
+                              icon={<WarningIcon />}
+                              label={`${stats.warningCount} warnings`}
+                              size="small"
+                              color="warning"
+                              variant="outlined"
+                            />
+                          </Box>
+                        }
+                      />
+                    </ListItem>
+                  );
+                })}
               </List>
             </Paper>
           )}

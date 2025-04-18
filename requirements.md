@@ -11,6 +11,11 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
 3. [FM-003] Display list of uploaded files with sizes
 4. [FM-004] Ability to remove individual files from the upload list
 5. [FM-005] Process files client-side without server requirements
+6. [FM-006] Show error and warning statistics per file:
+    - Display total number of errors found in each file
+    - Display total number of warnings found in each file
+    - Show statistics immediately after file selection
+    - Update statistics when files are removed
 
 ### Log Parsing
 1. [LP-001] Parse log entries in the format: `YYYY-MM-DD HH:mm:ss.fff +/-TZ:00 [LEVEL] Message`
