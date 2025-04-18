@@ -23,7 +23,7 @@ interface LogData {
   timestamp: Date;
   message: string;
   file: string;
-  level: 'ERR' | 'WARN';
+  level: 'ERR' | 'WRN';
 }
 
 interface ErrorModalProps {

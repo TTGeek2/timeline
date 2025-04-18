@@ -19,7 +19,7 @@ interface LogData {
   timestamp: Date;
   message: string;
   file: string;
-  level: 'ERR' | 'WARN';
+  level: 'ERR' | 'WRN';
 }
 
 interface ErrorListProps {
@@ -88,7 +88,7 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
     }
   };
 
-  const getChipColor = (level: 'ERR' | 'WARN') => {
+  const getChipColor = (level: 'ERR' | 'WRN') => {
     return level === 'ERR' ? 'error' : 'warning';
   };
 

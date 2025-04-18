@@ -23,7 +23,7 @@ interface LogData {
   timestamp: Date;
   message: string;
   file: string;
-  level: 'ERR' | 'WARN';
+  level: 'ERR' | 'WRN';
 }
 
 const theme = createTheme({
@@ -48,7 +48,7 @@ function App() {
   const [logData, setLogData] = useState<LogData[]>([]);
   const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
   const [collapsed, setCollapsed] = useState(false);
-  const [logType, setLogType] = useState<'ERR' | 'WARN'>('ERR');
+  const [logType, setLogType] = useState<'ERR' | 'WRN'>('ERR');
 
   const handleFileUpload = (data: LogData[]) => {
     setLogData(data);
@@ -59,7 +59,7 @@ function App() {
     setSelectedMessage(message);
   };
 
-  const handleLogTypeChange = (_: React.MouseEvent<HTMLElement>, newLogType: 'ERR' | 'WARN' | null) => {
+  const handleLogTypeChange = (_: React.MouseEvent<HTMLElement>, newLogType: 'ERR' | 'WRN' | null) => {
     if (newLogType !== null) {
       setLogType(newLogType);
       setSelectedMessage(null);
@@ -103,7 +103,7 @@ function App() {
                   Errors
                 </ToggleButton>
                 <ToggleButton 
-                  value="WARN" 
+                  value="WRN" 
                   aria-label="warnings"
                   sx={{ 
                     '&.Mui-selected': { 

@@ -15,7 +15,7 @@ interface LogData {
   timestamp: Date;
   message: string;
   file: string;
-  level: 'ERR' | 'WARN';
+  level: 'ERR' | 'WRN';
 }
 
 interface FileUploadProps {
@@ -67,10 +67,10 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }: FileUploadProps
            (line.match(/^[\s]*---/) !== null); // Stack trace boundaries
   };
 
-  const normalizeLogLevel = (level: string): 'ERR' | 'WARN' | null => {
+  const normalizeLogLevel = (level: string): 'ERR' | 'WRN' | null => {
     switch (level) {
       case 'ERR': return 'ERR';
-      case 'WRN': return 'WARN';
+      case 'WRN': return 'WRN';
       default: return null;
     }
   };

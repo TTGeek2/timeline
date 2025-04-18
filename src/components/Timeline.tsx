@@ -1,8 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Box,
   Typography,
-  useTheme
+  useTheme,
+  IconButton,
+  Collapse,
+  Paper,
+  Tooltip as MuiTooltip
 } from '@mui/material';
 import {
   LineChart,
@@ -14,15 +18,21 @@ import {
   ResponsiveContainer,
   Scatter,
   Legend,
-  TooltipProps
+  TooltipProps,
+  ReferenceLine,
+  Area,
+  AreaChart
 } from 'recharts';
-import { format, startOfHour, endOfHour, addMinutes, isWithinInterval, min, max, subMinutes } from 'date-fns';
+import { format, addMinutes, isWithinInterval, min, max, subMinutes } from 'date-fns';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import InfoIcon from '@mui/icons-material/Info';
 
 interface LogData {
   timestamp: Date;
   message: string;
   file: string;
-  level: 'ERR' | 'WARN';
+  level: 'ERR' | 'WRN';
 }
 
 interface TimelineProps {
@@ -32,17 +42,21 @@ interface TimelineProps {
 
 interface ChartDataPoint {
   timestamp: Date;
-  count: number;
+  errorCount: number;
+  warningCount: number;
+  totalCount: number;
   entries?: LogData[];
 }
 
 interface ScatterDataPoint extends ChartDataPoint {
   file: string;
-  intervalCount: number;
+  level: 'ERR' | 'WRN';
 }
 
 const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
   const theme = useTheme();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [hoveredPoint, setHoveredPoint] = useState<ChartDataPoint | null>(null);
 
   // Calculate the date range once
   const { startDate, endDate } = useMemo(() => {
@@ -52,10 +66,10 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
     const minDate = min(dates);
     const maxDate = max(dates);
 
-    // Round to hours and add padding
+    // Add 30-minute padding before first and after last entry
     return {
-      startDate: subMinutes(startOfHour(minDate), 30),
-      endDate: addMinutes(endOfHour(maxDate), 30)
+      startDate: subMinutes(minDate, 30),
+      endDate: addMinutes(maxDate, 30)
     };
   }, [logData]);
 
@@ -63,23 +77,21 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
   const chartData = useMemo(() => {
     if (!logData.length) return [];
 
-    console.log('Processing timeline data:', logData);
-
     // Filter data if an error is selected
     const filteredData = selectedError
       ? logData.filter(log => log.message === selectedError)
       : logData;
 
-    console.log('Date range:', { startDate, endDate });
-
-    // Create 15-minute intervals for better granularity
+    // Create 15-minute intervals
     const intervals: ChartDataPoint[] = [];
     let currentInterval = startDate;
 
     while (currentInterval <= endDate) {
       intervals.push({
         timestamp: new Date(currentInterval),
-        count: 0,
+        errorCount: 0,
+        warningCount: 0,
+        totalCount: 0,
         entries: []
       });
       currentInterval = addMinutes(currentInterval, 15);
@@ -94,12 +106,16 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
         })
       );
       if (interval) {
-        interval.count++;
+        if (log.level === 'ERR') {
+          interval.errorCount++;
+        } else {
+          interval.warningCount++;
+        }
+        interval.totalCount = interval.errorCount + interval.warningCount;
         interval.entries?.push(log);
       }
     });
 
-    console.log('Processed intervals:', intervals);
     return intervals;
   }, [logData, selectedError, startDate, endDate]);
 
@@ -108,7 +124,7 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
   };
 
   const formatTooltip = (date: Date) => {
-    return format(date, 'MMMM d, yyyy HH:mm');
+    return format(date, 'MMMM d, yyyy HH:mm:ss.SSS');
   };
 
   const renderTooltip = (props: TooltipProps<number, string>) => {
@@ -120,127 +136,171 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
     const isScatterPoint = 'file' in data;
 
     return (
-      <Box sx={{ bgcolor: 'background.paper', p: 1, border: 1, borderColor: 'divider', borderRadius: 1 }}>
-        <Typography variant="body2">
+      <Paper elevation={3} sx={{ p: 2, bgcolor: 'background.paper' }}>
+        <Typography variant="subtitle2" gutterBottom>
           {formatTooltip(data.timestamp)}
         </Typography>
         {isScatterPoint ? (
           <>
-            <Typography variant="body2">
-              File: {data.file}
+            <Typography variant="body2" color={data.level === 'ERR' ? 'error' : 'warning'}>
+              {data.level === 'ERR' ? 'Error' : 'Warning'} in {data.file}
             </Typography>
             <Typography variant="body2">
-              Time: {format(data.timestamp, 'HH:mm:ss')}
-            </Typography>
-            <Typography variant="body2">
-              Interval Count: {data.intervalCount}
+              Time: {format(data.timestamp, 'HH:mm:ss.SSS')}
             </Typography>
           </>
         ) : (
           <>
-            <Typography variant="body2">
-              Count: {data.count}
+            <Typography variant="body2" color="error">
+              Errors: {data.errorCount}
+            </Typography>
+            <Typography variant="body2" color="warning">
+              Warnings: {data.warningCount}
+            </Typography>
+            <Typography variant="body2" sx={{ mt: 1 }}>
+              Total: {data.totalCount}
             </Typography>
             {data.entries && data.entries.length > 0 && (
               <Box sx={{ mt: 1 }}>
                 <Typography variant="caption" color="text.secondary">
-                  {data.entries[0].level === 'ERR' ? 'Errors' : 'Warnings'} in this interval:
+                  Entries in this interval:
                 </Typography>
                 {data.entries.map((entry: LogData, index: number) => (
-                  <Typography key={index} variant="caption" display="block">
-                    {format(entry.timestamp, 'HH:mm:ss')} - {entry.message.split('\n')[0]}
+                  <Typography 
+                    key={index} 
+                    variant="caption" 
+                    display="block"
+                    color={entry.level === 'ERR' ? 'error' : 'warning'}
+                  >
+                    {format(entry.timestamp, 'HH:mm:ss.SSS')} - {entry.message.split('\n')[0]}
                   </Typography>
                 ))}
               </Box>
             )}
           </>
         )}
-      </Box>
+      </Paper>
     );
   };
 
-  // Create scatter plot data with interval counts
+  // Create scatter plot data
   const scatterData = useMemo(() => {
     if (!selectedError) return [];
     
     return chartData.flatMap(interval => 
       (interval.entries || []).map(entry => ({
         timestamp: entry.timestamp,
-        count: interval.count,
-        intervalCount: interval.count,
-        file: entry.file
+        errorCount: entry.level === 'ERR' ? 1 : 0,
+        warningCount: entry.level === 'WRN' ? 1 : 0,
+        totalCount: 1,
+        file: entry.file,
+        level: entry.level
       }))
     );
   }, [chartData, selectedError]);
 
   // Calculate Y-axis domain
   const yAxisDomain = useMemo(() => {
-    const maxCount = Math.max(...chartData.map(d => d.count));
+    const maxCount = Math.max(...chartData.map(d => d.totalCount));
     return [0, Math.max(maxCount, 1)];
   }, [chartData]);
 
   const getTitle = () => {
     if (!logData.length) return 'Timeline';
-    return `${logData[0].level === 'ERR' ? 'Error' : 'Warning'} Timeline`;
+    return 'Error and Warning Timeline';
   };
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        {getTitle()}
-      </Typography>
-      
-      <Box sx={{ height: 400, width: '100%' }}>
-        <ResponsiveContainer>
-          <LineChart
-            data={chartData}
-            margin={{
-              top: 16,
-              right: 16,
-              bottom: 24,
-              left: 24,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="timestamp"
-              domain={[startDate.getTime(), endDate.getTime()]}
-              type="number"
-              scale="time"
-              tickFormatter={formatXAxis}
-              interval="preserveStartEnd"
-              minTickGap={50}
-              padding={{ left: 0, right: 0 }}
-            />
-            <YAxis
-              domain={yAxisDomain}
-              allowDecimals={false}
-            />
-            <Tooltip content={renderTooltip} />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="count"
-              name={`${logData[0]?.level === 'ERR' ? 'Error' : 'Warning'} Count`}
-              stroke={theme.palette[logData[0]?.level === 'ERR' ? 'error' : 'warning'].main}
-              strokeWidth={2}
-              dot={false}
-              connectNulls
-            />
-            {selectedError && (
-              <Scatter
-                data={scatterData}
-                dataKey="count"
-                name="Individual Occurrences"
-                fill={theme.palette[logData[0]?.level === 'ERR' ? 'error' : 'warning'].main}
-                shape="circle"
-                legendType="circle"
-              />
-            )}
-          </LineChart>
-        </ResponsiveContainer>
+    <Paper elevation={2} sx={{ p: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Typography variant="h6">
+            {getTitle()}
+          </Typography>
+          <MuiTooltip title="Shows error and warning occurrences over time. Hover over points for details.">
+            <InfoIcon fontSize="small" color="action" />
+          </MuiTooltip>
+        </Box>
+        <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+          {isCollapsed ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+        </IconButton>
       </Box>
-    </Box>
+      
+      <Collapse in={!isCollapsed}>
+        <Box sx={{ height: 400, width: '100%' }}>
+          <ResponsiveContainer>
+            <AreaChart
+              data={chartData}
+              margin={{
+                top: 16,
+                right: 16,
+                bottom: 24,
+                left: 24,
+              }}
+              onMouseMove={(e) => {
+                if (e.activePayload) {
+                  setHoveredPoint(e.activePayload[0].payload as ChartDataPoint);
+                }
+              }}
+              onMouseLeave={() => setHoveredPoint(null)}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey="timestamp"
+                domain={[startDate.getTime(), endDate.getTime()]}
+                type="number"
+                scale="time"
+                tickFormatter={formatXAxis}
+                interval="preserveStartEnd"
+                minTickGap={50}
+                padding={{ left: 0, right: 0 }}
+              />
+              <YAxis
+                domain={yAxisDomain}
+                allowDecimals={false}
+              />
+              <Tooltip content={renderTooltip} />
+              <Legend />
+              <Area
+                type="monotone"
+                dataKey="errorCount"
+                name="Errors"
+                stackId="1"
+                stroke={theme.palette.error.main}
+                fill={theme.palette.error.main}
+                fillOpacity={0.3}
+              />
+              <Area
+                type="monotone"
+                dataKey="warningCount"
+                name="Warnings"
+                stackId="1"
+                stroke={theme.palette.warning.main}
+                fill={theme.palette.warning.main}
+                fillOpacity={0.3}
+              />
+              {selectedError && (
+                <Scatter
+                  data={scatterData}
+                  dataKey="totalCount"
+                  name="Individual Occurrences"
+                  fill={theme.palette.error.main}
+                  shape="circle"
+                  legendType="circle"
+                />
+              )}
+              {hoveredPoint && (
+                <ReferenceLine
+                  x={hoveredPoint.timestamp.getTime()}
+                  stroke={theme.palette.text.secondary}
+                  strokeDasharray="3 3"
+                />
+              )}
+            </AreaChart>
+          </ResponsiveContainer>
+        </Box>
+      </Collapse>
+    </Paper>
   );
 };
 
