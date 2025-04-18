@@ -143,10 +143,7 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
         {isScatterPoint ? (
           <>
             <Typography variant="body2" color={data.level === 'ERR' ? 'error' : 'warning'}>
-              {data.level === 'ERR' ? 'Error' : 'Warning'} in {data.file}
-            </Typography>
-            <Typography variant="body2">
-              Time: {format(data.timestamp, 'HH:mm:ss.SSS')}
+              {data.level === 'ERR' ? 'Error' : 'Warning'}
             </Typography>
           </>
         ) : (
@@ -157,26 +154,6 @@ const Timeline: React.FC<TimelineProps> = ({ logData, selectedError }) => {
             <Typography variant="body2" color="warning">
               Warnings: {data.warningCount}
             </Typography>
-            <Typography variant="body2" sx={{ mt: 1 }}>
-              Total: {data.totalCount}
-            </Typography>
-            {data.entries && data.entries.length > 0 && (
-              <Box sx={{ mt: 1 }}>
-                <Typography variant="caption" color="text.secondary">
-                  Entries in this interval:
-                </Typography>
-                {data.entries.map((entry: LogData, index: number) => (
-                  <Typography 
-                    key={index} 
-                    variant="caption" 
-                    display="block"
-                    color={entry.level === 'ERR' ? 'error' : 'warning'}
-                  >
-                    {format(entry.timestamp, 'HH:mm:ss.SSS')} - {entry.message.split('\n')[0]}
-                  </Typography>
-                ))}
-              </Box>
-            )}
           </>
         )}
       </Paper>

@@ -37,6 +37,10 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
    - Count of entries in the interval
    - List of entries with timestamps and first line of message
 9. [TV-009] Support for scatter plot of individual occurrences when an entry is selected
+10. [TV-010] Simplified tooltip showing only:
+    - Count for the timeslot
+    - Type of entry (error or warning)
+    - Timestamp of the timeslot
 
 ### Error/Warning List
 1. [EW-001] Toggle between errors and warnings view (default to errors)
