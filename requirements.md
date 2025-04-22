@@ -80,7 +80,7 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
 
 ### Dependencies
 
-1. [TD-001] Use Recharts library for Timeline visualization 
+1. [TD-001] Use Recharts library for Timeline visualization
 
 ### User Interface
 
