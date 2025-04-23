@@ -63,6 +63,8 @@ The Log4Net Analyzer is a web application that helps users analyze and visualize
 4. [EW-004] Support clicking an entry to highlight it on the timeline
 5. [EW-005] Support deselecting the current error/warning group to show all entries
 6. [EW-006] Info button to view detailed information about each entry
+7. [EW-007] Group errors/warnings by root message (first line) only, ignoring stack trace details
+8. [EW-008] When an error/warning group is selected, display an indicator icon on other groups that have occurrences in the same time intervals, helping users identify temporally correlated issues
 
 ### Detail Modal
 

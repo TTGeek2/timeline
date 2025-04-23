@@ -9,10 +9,12 @@ import {
   Chip,
   Divider,
   IconButton,
-  Button
+  Button,
+  Tooltip
 } from '@mui/material';
 import { format, isValid } from 'date-fns';
 import InfoIcon from '@mui/icons-material/Info';
+import TimelineIcon from '@mui/icons-material/Timeline';
 import ErrorModal from './ErrorModal';
 
 interface LogData {
@@ -36,6 +38,32 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
   } | null>(null);
   const [currentErrorIndex, setCurrentErrorIndex] = useState(0);
 
+  // Function to check if two error groups have temporal overlap
+  const hasTemporalOverlap = (group1: LogData[], group2: LogData[]): boolean => {
+    // Create sets of 15-minute intervals for each group
+    const getIntervals = (logs: LogData[]): Set<string> => {
+      const intervals = new Set<string>();
+      logs.forEach(log => {
+        // Round to nearest 15 minutes for consistency with timeline
+        const time = log.timestamp.getTime();
+        const interval = Math.floor(time / (15 * 60 * 1000)) * (15 * 60 * 1000);
+        intervals.add(interval.toString());
+      });
+      return intervals;
+    };
+
+    const intervals1 = getIntervals(group1);
+    const intervals2 = getIntervals(group2);
+
+    // Check for any common intervals
+    for (const interval of Array.from(intervals1)) {
+      if (intervals2.has(interval)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   // Group messages and count occurrences
   const messageGroups = React.useMemo(() => {
     const groups = new Map<string, { count: number; occurrences: LogData[] }>();
@@ -57,6 +85,12 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
       .sort((a, b) => b.count - a.count)
       .slice(0, 100);
   }, [logData]);
+
+  // Find the selected group's data
+  const selectedGroupData = React.useMemo(() => {
+    if (!selectedError) return null;
+    return messageGroups.find(group => group.message === selectedError);
+  }, [selectedError, messageGroups]);
 
   const formatDate = (date: Date) => {
     if (!isValid(date)) return 'Invalid Date';
@@ -119,56 +153,75 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
       </Box>
       
       <List>
-        {messageGroups.map((group, index) => (
-          <React.Fragment key={index}>
-            <ListItem 
-              disablePadding
-              secondaryAction={
-                <IconButton 
-                  edge="end" 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleShowDetails(group);
-                  }}
-                  sx={{ mr: 1 }}
-                >
-                  <InfoIcon />
-                </IconButton>
-              }
-            >
-              <ListItemButton
-                selected={selectedError === group.message}
-                onClick={() => handleGroupClick(group.message)}
+        {messageGroups.map((group, index) => {
+          const hasOverlap = selectedError && selectedGroupData && 
+            group.message !== selectedError && 
+            hasTemporalOverlap(group.occurrences, selectedGroupData.occurrences);
+
+          return (
+            <React.Fragment key={index}>
+              <ListItem 
+                disablePadding
+                secondaryAction={
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    {hasOverlap && (
+                      <Tooltip title="Has errors in same time intervals as selected group">
+                        <TimelineIcon 
+                          sx={{ 
+                            mr: 1,
+                            color: 'primary.main',
+                            animation: 'pulse 2s infinite'
+                          }}
+                        />
+                      </Tooltip>
+                    )}
+                    <IconButton 
+                      edge="end" 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleShowDetails(group);
+                      }}
+                      sx={{ mr: 1 }}
+                    >
+                      <InfoIcon />
+                    </IconButton>
+                  </Box>
+                }
               >
-                <ListItemText
-                  primary={
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Typography 
-                        variant="body1" 
-                        noWrap 
-                        sx={{ maxWidth: { xs: '200px', sm: '300px', md: '500px' } }}
-                      >
-                        {group.message.split('\n')[0]}
+                <ListItemButton
+                  selected={selectedError === group.message}
+                  onClick={() => handleGroupClick(group.message)}
+                >
+                  <ListItemText
+                    primary={
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Typography 
+                          variant="body1" 
+                          noWrap 
+                          sx={{ maxWidth: { xs: '200px', sm: '300px', md: '500px' } }}
+                        >
+                          {group.message.split('\n')[0]}
+                        </Typography>
+                        <Chip
+                          label={group.count}
+                          size="small"
+                          color={getChipColor(group.occurrences[0].level)}
+                          variant="outlined"
+                        />
+                      </Box>
+                    }
+                    secondary={
+                      <Typography variant="caption" color="text.secondary">
+                        First occurrence: {formatDate(group.occurrences[0].timestamp)}
                       </Typography>
-                      <Chip
-                        label={group.count}
-                        size="small"
-                        color={getChipColor(group.occurrences[0].level)}
-                        variant="outlined"
-                      />
-                    </Box>
-                  }
-                  secondary={
-                    <Typography variant="caption" color="text.secondary">
-                      First occurrence: {formatDate(group.occurrences[0].timestamp)}
-                    </Typography>
-                  }
-                />
-              </ListItemButton>
-            </ListItem>
-            {index < messageGroups.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+              {index < messageGroups.length - 1 && <Divider />}
+            </React.Fragment>
+          );
+        })}
       </List>
 
       <ErrorModal
@@ -183,6 +236,16 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
         currentErrorIndex={currentErrorIndex}
         onNavigate={handleNavigate}
       />
+
+      <style>
+        {`
+          @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+          }
+        `}
+      </style>
     </Box>
   );
 };
