@@ -40,7 +40,8 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
   const messageGroups = React.useMemo(() => {
     const groups = new Map<string, { count: number; occurrences: LogData[] }>();
     
-    logData.forEach(log => {
+    for (let i = 0; i < logData.length; i++) {
+      const log = logData[i];
       const existing = groups.get(log.message);
       if (existing) {
         existing.count++;
@@ -48,7 +49,7 @@ const ErrorList: React.FC<ErrorListProps> = ({ logData, onErrorSelect, selectedE
       } else {
         groups.set(log.message, { count: 1, occurrences: [log] });
       }
-    });
+    }
 
     // Convert to array and sort by count
     return Array.from(groups.entries())
